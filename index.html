@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>豆瓣电影Top250</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script id="movie" type="text/html">
+        <ul>
+            <%for(var i=0;i < subjects.length;i++){%>
+                <li>
+                    <a target="_blank" href="<%=subjects[i].alt%>" class="clearfix">
+                        <img src="<%=subjects[i].images.medium%>" alt="">
+                        <div>
+                            <h4><%=subjects[i].title%></h4>
+                            <p>
+                                类型：
+                                <%for(var l=0;l < subjects[i].genres.length;l++){%>
+                                <span><%=subjects[i].genres[l]%></span>
+                                <%}%>
+                            </p>
+                            <p>
+                                导演：
+                                <%for(var k=0;k < subjects[i].directors.length;k++){%>
+                                <span><%=subjects[i].directors[k].name%></span>
+                                <%}%>
+                            </p>
+                            <p>
+                                主演：
+                                <%for(var j=0;j < subjects[i].casts.length;j++){%>
+                                <span><%=subjects[i].casts[j].name%></span>
+                                <%}%>
+
+                            <p>
+                                上映时间：<%=subjects[i].year%>年
+                            </p>
+                            <p>
+                                时长：<%=subjects[i].durations[0]%>
+                            </p>
+                        </div>
+                        <span class="score">
+                            <%=subjects[i].rating.average.toFixed(1)%>分
+
+                        </span>
+                    </a>
+                </li>
+            <%}%>
+        </ul>
+    </script>
+</head>
+<body>
+    <div class="content">
+        <h3>豆瓣电影Top250</h3>
+        <div class="loading"><img src="images/loading.gif" alt=""></div>
+        <div class="movieCon"></div>
+    </div>
+    <div class="box clearfix">
+        <a href="javascript:void(0);">首页</a>
+        <a href="javascript:void(0);">上一页</a>
+        <div class="page">
+            <a href="javascript:void(0);" class="active">1</a>
+            <a href="javascript:void(0);">2</a>
+            <a href="javascript:void(0);">3</a>
+            <a href="javascript:void(0);">4</a>
+            <span>...</span>
+            <a href="javascript:void(0);">11</a>
+            <a href="javascript:void(0);">12</a>
+            <a href="javascript:void(0);">13</a>
+        </div>
+        <a href="javascript:void(0);">下一页</a>
+    </div>
+</body>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/template-native.js"></script>
+<script src="js/index.js"></script>
+</html>
